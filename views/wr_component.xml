@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="wr_komponen_tree" model="ir.ui.view">
+            <field name="name">wr.komponen.tree</field>
+            <field name="model">wr.komponen</field>
+            <field name="arch" type="xml">
+                <tree string="Komponen">
+                    <field name="name"/>
+                    <field name="waktu_pengerjaan"/>
+                </tree>
+            </field>
+        </record>
+        <record id="wr_komponen_form" model="ir.ui.view">
+            <field name="name">wr.komponen.form</field>
+            <field name="model">wr.komponen</field>
+            <field name="arch" type="xml">
+                <form string="Komponen">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="waktu_pengerjaan"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wr_komponen_action_window" model="ir.actions.act_window">
+            <field name="name">Komponen</field>
+            <field name="res_model">wr.komponen</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="wr_komponen_action_window" id="menu_wr_komponen" sequence="2"
+            name="Komponen" parent="menu_wr_item_komponen_root"/>
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="whatever_name assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script src="/warungpintar_item_komponen/static/src/js/wr_custom_import_item.js" type="text/javascript"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

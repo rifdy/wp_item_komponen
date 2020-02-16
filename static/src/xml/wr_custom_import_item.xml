@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template xml:space="preserve">
+    <t t-extend="ImportView.import_button">
+        <t  t-jquery="button.o_button_import" t-operation="after">
+            <button t-if="widget.modelName == 'wr.item'" type="button" class="btn btn-sm btn-default oe_cust_import_button">
+                Custom Import
+            </button> 
+        </t>
+    </t>
+</template>

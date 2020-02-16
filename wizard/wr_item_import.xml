@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="wr_item_import_form" model="ir.ui.view">
+            <field name="name">wr.item.import.form</field>
+            <field name="model">wr.item.import</field>
+            <field name="arch" type="xml">
+                <form string="Import an excel file">
+                    <group>
+                        <field name="excel_file" />
+                    </group>
+                    <footer>
+                        <button name="import_excel" type="object"
+                                string="Import" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wr_item_import_action" model="ir.actions.act_window">
+          <field name="name">Import a excel file</field>
+          <field name="res_model">wr.item.import</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

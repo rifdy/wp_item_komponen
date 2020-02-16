@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record id="wr_item_tree" model="ir.ui.view">
+            <field name="name">wr.item.tree</field>
+            <field name="model">wr.item</field>
+            <field name="arch" type="xml">
+                <!-- <field name="total_bobot" invisible="1"/> -->
+                <tree string="Item" decoration-danger="total_bobot > 100">
+                    <field name="name"/>
+                    <field name="tgl_mulai_pengerjaan"/>
+                    <field name="tgl_selesai_ekspektasi"/>
+                    <field name="tgl_selesai_real"/>
+                    <field name="total_bobot"/>
+                </tree>
+            </field>
+        </record>
+        <record id="wr_item_form" model="ir.ui.view">
+            <field name="name">wr.item.form</field>
+            <field name="model">wr.item</field>
+            <field name="arch" type="xml">
+                <form string="Item">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="tgl_mulai_pengerjaan"/>
+                            <field name="tgl_selesai_ekspektasi" readonly="1" forca-save="1"/>
+                            <field name="tgl_selesai_real"/>
+                            <field name="total_bobot"/>
+                        </group>
+                        <notebook>
+                            <page string="Item Line">
+                                <field name="item_line_ids" mode="form,tree" context="{'default_item_id':id}">
+                                    <form string="Item Line">
+                                        <group>
+                                            <field name="item_id" readonly="1" forca-save="1"/>
+                                            <field name="name" readonly="1" forca-save="1"/>
+                                            <field name="komponen_id"/>
+                                            <field name="bobot"/>
+                                        </group>
+                                    </form>
+                                    <tree string="Item Line" editable="bottom">
+                                        <field name="item_id" readonly="1" forca-save="1"/>
+                                        <field name="name" readonly="1" forca-save="1"/>
+                                        <field name="komponen_id"/>
+                                        <field name="bobot"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wr_item_action_window" model="ir.actions.act_window">
+            <field name="name">Item</field>
+            <field name="res_model">wr.item</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_wr_item_komponen_root" name="Warung Pintar" web_icon="warungpintar_item_komponen,static/src/img/icon.png"/>
+        <menuitem action="wr_item_action_window" id="menu_wr_item" sequence="1"
+            name="Item" parent="menu_wr_item_komponen_root"/>
+    </data>
+</odoo>
